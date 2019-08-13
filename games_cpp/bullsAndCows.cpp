@@ -51,7 +51,8 @@ int main(){
         if(to_string(n).length()!=4 && !isdigit(n)){
             cout << "Tem de ser um numero com 4 digitos!!!\n";
             cin.clear();
-            cin.ignore();
+            cin.ignore(10000, '\n');
+           
         }else{
             logic(to_string(n));
             count--;
