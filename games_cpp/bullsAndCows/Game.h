@@ -13,14 +13,19 @@ class Game{
         string numero;
 	public:
 		bool gameOn;
-	
+		int count;
+	    
 		Game();
 		
-		void setup(int count);
+		void setup();
 
 		void logic(string n);
 
 		bool gameState();
+		
+		bool playGame();
+		
+		int getCount();
 
 };
 

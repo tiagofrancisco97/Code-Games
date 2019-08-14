@@ -18,9 +18,8 @@ int main(){
 
     cout << "Este jogo consiste em advinhares o numero em que estou a pensar,\nse os numeros estiverem certos e na posiçao certa é um bull, se estiverem certos mas na posiçao errada são cows.\n";
     
-    int count = 10;
-    while(count>0 && g.gameState()){
-        g.setup(count);
+    while((g.getCount()>0 && g.gameState()) || g.playGame()){
+        g.setup();
     }
 }
 

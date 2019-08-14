@@ -6,11 +6,11 @@ using namespace std;
 
 
 
-    Game::Game() : gameOn(true), numero("1234"){
+    Game::Game() : gameOn(true), numero("1234"), count(10){
     }
     
     
-    void Game::setup(int count){
+    void Game::setup(){
         int n;
         cout << "\nTens "<<count<<" tentativas\n";
         cout << "Introduz um digito de 4 numeros: ";
@@ -52,5 +52,27 @@ using namespace std;
 
     bool Game::gameState(){
         return gameOn;
+    }
+    
+    bool Game::playGame(){
+        string p;
+        
+        if(count ==0 || gameOn == false){
+            cout << "\nJogar novamente (y/n)?\n";
+            cin >> p;
+            if(p=="y"){
+                count=10;
+                gameOn = true;
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+    
+    int Game::getCount(){
+        return count;
     }
 
