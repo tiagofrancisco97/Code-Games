@@ -8,42 +8,19 @@ If the matching digits are in their right positions, they are "bulls", if in dif
 #include <iostream>
 #include <string.h>
 #include <stdio.h>
+#include "Game.h"
 using namespace std;
 
-bool gameOn = true;
 
-static string numero = "1234"; 
-
-
-void logic(string n){
-    if(n==numero){
-        cout << "\nAcertaste o numero!!! Parabens!";
-        gameOn = false;
-    }else{
-        int cows =0;
-        int bulls =0;
-        for(int i =0; i<4; i++){
-            for(int j=0; j<4; j++){
-                if(j==i && n[i]==numero[j]){
-                    bulls++;
-                }
-                if(j!=i && n[i]==numero[j]){
-                    cows++;
-                }
-            }
-        }
-
-        cout << "Bulls: " <<bulls <<"\n";
-        cout << "Cows: " <<cows <<"\n";
-    }
-}
 
 int main(){
+
+	Game g;
 
     cout << "Este jogo consiste em advinhares o numero em que estou a pensar,\nse os numeros estiverem certos e na posiçao certa é um bull, se estiverem certos mas na posiçao errada são cows.\n";
     
     int count = 10;
-    while(count>0 && gameOn){
+    while(count>0 && g.gameState()){
         int n;
         cout << "\nTens "<<count<<" tentativas\n";
         cout << "Introduz um digito de 4 numeros: ";
@@ -54,7 +31,7 @@ int main(){
             cin.ignore(10000, '\n');
            
         }else{
-            logic(to_string(n));
+            g.logic(to_string(n));
             count--;
         }
     }
