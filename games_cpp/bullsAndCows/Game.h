@@ -11,9 +11,9 @@ class Game{
     
     private:
         string numero;
+        int count;
 	public:
 		bool gameOn;
-		int count;
 	    
 		Game();
 		
