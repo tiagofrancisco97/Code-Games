@@ -15,6 +15,8 @@ class Game{
 		bool gameOn;
 	
 		Game();
+		
+		void setup(int count);
 
 		void logic(string n);
 
